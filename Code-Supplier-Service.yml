@@ -1,0 +1,38 @@
+css:
+  cds:
+    src: https://github.com/siamaktavakoli/EventTracker_ChangeDetectionService/archive/refs/heads/main.zip
+    projectName: EventTracker_ChangeDetectionService-main #reponame-branchname
+  ss:
+    src: https://github.com/siamaktavakoli/EventTracker_ScoringService/archive/refs/heads/main.zip
+    projectName: EventTracker_ScoringService-main
+  rs:
+    src: https://github.com/siamaktavakoli/EventTracker_ReportingService/archive/refs/heads/main.zip
+    projectName: EventTracker_ReportingService-main
+  dis:
+    src: https://github.com/siamaktavakoli/EventTracker_DataInputService/archive/refs/heads/main.zip
+    projectName: EventTracker_DataInputService-main
+    
+#cssTempDir: ${HOME}/csstempdir
+cssTempDir: csstempdir
+zipDir: ${cssTempDir}/zips
+codeDir: ${cssTempDir}/codes
+zipOutDir: ${cssTempDir}/zipOut
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: ERROR
+  #  file:
+  #    name: ${LOG_PATH:-./logs}/app.log
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n'
+  encoder:
+    pattern: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n'
+    class: net.logstash.logback.encoder.LogstashEncoder
+    customFields:
+      service: my-service
+      environment: dev
+      host: ${HOSTNAME}
